@@ -24,22 +24,23 @@ function drawChart() {
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Month');
     data.addColumn('number', 'People Hours');
+	data.addColumn('number', 'Scott');
 
     // Add 12 rows to the DataTable, January - December of
     // 2014.
     data.addRows([
-        ['January', 1207.01],
-        ['February', 907.09],
-        ['March', 113.82],
-        ['April', 112.34],
-        ['May', 239.5],
-        ['June', 146],
-        ['July', 130],
-        ['August', 385.67],
-        ['September', 2352.56],
-        ['October', 582.57],
-        ['November', 300.08],
-        ['December', 20.83]
+        ['Business', 1207.01,1222],
+        ['February', 907.09,222],
+        ['March', 113.82,222],
+        ['April', 112.34,2352],
+        ['May', 239.5,2222],
+        ['June', 146,25],
+        ['July', 130,4],
+        ['August', 385.67,54],
+        ['September', 2352.56,5465],
+        ['October', 582.57,655],
+        ['November', 300.08,54],
+        ['December', 20.83,3213]
       ]);
 
     // Set the options for the chart to be drawn.  This include the
