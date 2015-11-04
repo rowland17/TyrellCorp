@@ -13,49 +13,24 @@
 
 google.load('visualization', '1', {packages: ['corechart']});
 
-google.setOnLoadCallback(drawChart);
+google.setOnLoadCallback(vizInit);
 
-function drawChart() {
+var data;
+var chart;
 
-    // STEP 3: STORE THE DATA.
-
-    // Store the data by creating a google DataTable object with
-    // two columns: Month and People Hours.
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Month');
-    data.addColumn('number', 'People Hours');
-	data.addColumn('number', 'Scott');
-
-    // Add 12 rows to the DataTable, January - December of
-    // 2014.
-    data.addRows([
-        ['Business', 1207.01,1222],
-        ['February', 907.09,222],
-        ['March', 113.82,222],
-        ['April', 112.34,2352],
-        ['May', 239.5,2222],
-        ['June', 146,25],
-        ['July', 130,4],
-        ['August', 385.67,54],
-        ['September', 2352.56,5465],
-        ['October', 582.57,655],
-        ['November', 300.08,54],
-        ['December', 20.83,3213]
-      ]);
-
-    // Set the options for the chart to be drawn.  This include the
-    // width, height, title, horizontal axis, vertical axis.  Finally
-    // turn off the legend.
-    var options = {
+var views ;
+var totals = {};
+var year = [2013, 2014];
+var options = {
         width: 700,
         height: 400,
-	title: 'Session Hours Provided by University of Portland Librarians in 2014',
+	title: 'Confidence and Satisfaction',
         hAxis: {
-            title: 'Month',
-            gridlines: {count: 12}
+            title: 'Major',
+            gridlines: {count: 9}
         },
         vAxis: {
-            title: 'People Hours'
+            title: ''
         },
 	legend: { 
 	    position: 'none' 
@@ -65,13 +40,69 @@ function drawChart() {
 		"duration" : 500
 	}
     };
+    
+    
+function vizInit() {
 
-    // Create a new viz object using the google API -- specifically,
-    // we are going to make a column chart inside the div called ex0
-    // in the html file.
-    var chart = new google.visualization.ColumnChart(document.getElementById('ex0'));
+	chart = new google.visualization.ColumnChart(document.getElementById('ex0'));
+    // STEP 3: STORE THE DATA.
+	var query= "SELECT MAJOR, AVE_CONF, SATISFACTION FROM 1n9vywcLACFd3BjZ8tqkwSPAMnxByOCpQwdCh_g0f";
+	
+	
+	var opts = {sendMethod: 'auto'};
+	var queryObj = new google.visualization.Query('https://www.google.com/fusiontables/gvizdata?tq=', opts);
 
-    // STEP 7: SHOW THE DATA
-    // Draw the chart with the supplied options.
-    chart.draw(data, options);
+	// Send the query and handle the response by logging the data
+// to the console.                                                                
+	queryObj.setQuery(query);
+	queryObj.send(function(e) {
+
+            data = e.getDataTable();
+
+            console.log(data);
+
+            // Create a view for academic year 2013-2014 that                                                          
+            // is the first two columns of the data, just the                                                          
+            // rows that have 2013-2014 for the value.                                                                 
+
+            // First, get the textualized range of the year.                                                           
+            //var thisYear = "" + year[0] + "-" + year[1];
+
+            // Next, create the object and get the rows 
+// corresponding to "thisYear".                                   
+            views = new google.visualization.DataView(data);
+        
+		//views.setRows(views.getFilteredRows([{column: 1}]));
+		//views.setRows(views.getFilteredRows([{column: 2}]));
+
+            // Get a subset of the columns.                                                                            
+            views.setColumns([0, 2]);
+
+            // Draw the chart for the initial academic year.                                                           
+            chart.draw(views.toDataTable(), options);
+
+	});
+    
+}
+
+
+function vizController() {
+
+//    console.log(thisYear);
+	console.log(views);
+	if(views == undefined)
+	{
+		views = new google.visualization.DataView(data);
+        //views.setRows(views.getFilteredRows([{column: 2}]));
+//		views.setRows(views.getFilteredRows([{column: 1}]));		
+	//	views.setRows(views.getFilteredRows([{column: 2}]));
+
+            // Get a subset of the columns.                                                                            
+            views.setColumns([0, 2]);
+
+            // Draw the chart for the initial academic year.                                                           
+            chart.draw(views.toDataTable(), options);
+	}
+
+
 }
