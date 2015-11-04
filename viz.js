@@ -11,7 +11,7 @@
  * @since: Jan 6, 2015
  */
 
-google.load('visualization', '1', {packages: ['bar']});
+google.load('visualization', '1', {packages: ['corechart']});
 
 google.setOnLoadCallback(vizInit);
 
@@ -44,7 +44,7 @@ var options = {
     
 function vizInit() {
 
-	chart = new google.charts.Bar(document.getElementById('ex0'));
+	chart = new google.visualization.ColumnChart(document.getElementById('ex0'));
     // STEP 3: STORE THE DATA.
 	var query= "SELECT MAJOR, AVE_CONF, SATISFACTION FROM 1n9vywcLACFd3BjZ8tqkwSPAMnxByOCpQwdCh_g0f";
 	
@@ -74,7 +74,7 @@ function vizInit() {
 			
 
             // Get a subset of the columns.                                                                            
-            //views.setColumns([0, 2]);
+           // views.setColumns([0, 2]);
 
 			console.log(views.toDataTable());
 			
@@ -99,7 +99,7 @@ function vizController() {
 	//	views.setRows(views.getFilteredRows([{column: 2}]));
 
             // Get a subset of the columns.                                                                            
-            //views.setColumns([0, 2]);
+           // views.setColumns([0, 2]);
 
             // Draw the chart for the initial academic year.                                                           
             chart.draw(views.toDataTable(), options);

@@ -1,12 +1,15 @@
 body{
 	margin:0px;
 	padding: 0px;
-	background-color:rgb(229,100,223);
+	background-color: #74afad;
 	font-family:Sans-Serif;
 	
 	
 }
-
+div#ex0{
+	width: 50%;
+	margin: 0 auto;
+}
 div#header{
 	padding: 30px;
 	background-image: url("library.jpg");
