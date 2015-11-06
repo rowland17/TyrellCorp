@@ -1,21 +1,23 @@
 body{
 	margin:0px;
 	padding: 0px;
-	background-color: #74afad;
+	background-color: purple;
 	font-family:Sans-Serif;
 	
 	
 }
 
 div#header{
-	padding: 30px;
+	padding: 0px;
 	background-image: url("library.jpg");
-	border-bottom: 2px solid orange;
+	background-size:contain;
+	background-repeat: no-repeat;
+	border-bottom: 2px solid black;
 	
 	
 }
 div#header p{
-		color: black;
+		color: white;
 		display:inline-block;
 }
 div#header p.title{
