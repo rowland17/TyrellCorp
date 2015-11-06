@@ -1,17 +1,67 @@
 body{
 	margin:0px;
 	padding: 0px;
-	background-color: purple;
+	background-color: #999999;
 	font-family:Sans-Serif;
 	
 	
+}
+.libbut{
+	float: left;
+	background: purple;
+	padding: 5px;
+	text-decoration:none;
+	border-radius:5px;
+	color:white;
+	display:inline-block;
+	box-shadow: 1px 1px 1px #000;
+	font-weight:bold;
+}
+form{
+	display: inline;
+}
+.libbut:hover{
+float: left;
+	background: white;
+	padding: 5px;
+	text-decoration:none;
+	border-radius:5px;
+	color:purple;
+	display:inline-block;
+	box-shadow: 1px 1px 1px #000;
+	font-weight:bold;
+}
+.graphbut:hover{float: left;
+background: purple;
+	padding: 6px;
+	text-decoration:none;
+	border-radius:5px;
+	color:white;
+	display:inline-block;
+	
+	font-weight:bold;
+}
+
+.graphbut{
+float: left;
+background: white;
+	padding: 6px;
+	text-decoration:none;
+	border-radius:5px;
+	color:purple;
+	display:inline-block;
+	font-weight:bold;
+}
+
+div#buttons{
+	display: inline-block;
 }
 
 div#header{
 	padding: 0px;
 	background-image: url("library.jpg");
-	background-size:contain;
-	background-repeat: no-repeat;
+	background-size: contain;
+	background-repeat: repeat;
 	border-bottom: 2px solid black;
 	
 	
