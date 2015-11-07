@@ -67,7 +67,7 @@ div#header{
 	
 }
 div#header p{
-		color: white;
+		color: #cc33ff;
 		display:inline-block;
 }
 div#header p.title{
@@ -78,5 +78,5 @@ div#header p.title{
 div#footer{
 	border-top: 2px solid #666;
 	padding: 30px;
-	color: #666;
+	color: black;
 }
