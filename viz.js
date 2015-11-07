@@ -35,6 +35,10 @@ var options = {
 	legend: { 
 	    position: 'none' 
 	},
+	series: {
+		0: {color: '#551a8b'},
+		1: {color: '#999999'}
+	},
 	animation: {
 		"startup" : true,
 		"duration" : 500
