@@ -29,9 +29,13 @@ function initialize(){
 //var totals = {};
 //var year = [2013, 2014];
 var options = {
-        width: 700,
-        height: 400,
+        width: 800,
+        height: 500,
 	title: 'Confidence and Satisfaction',
+	titleTextStyle: {
+		fontSize: 15,
+		bold: true
+	},
         hAxis: {
             title: 'Major',
             gridlines: {count: 9}
@@ -40,7 +44,7 @@ var options = {
             title: ''
         },
 	legend: { 
-	    position: 'none' 
+	    position: 'top' 
 	},
 	series: {
 		0: {color: '#551a8b'},
@@ -57,7 +61,7 @@ function vizInit() {
 
 	chart = new google.visualization.ColumnChart(document.getElementById('ex0'));
     // STEP 3: STORE THE DATA.
-	var query= "SELECT MAJOR, AVE_CONF, SATISFACTION FROM 1n9vywcLACFd3BjZ8tqkwSPAMnxByOCpQwdCh_g0f";
+	var query= "SELECT MAJOR, 'Database Research Confidence', 'Research Training Satisfaction' FROM 1n9vywcLACFd3BjZ8tqkwSPAMnxByOCpQwdCh_g0f";
 	
 	
 	var opts = {sendMethod: 'auto'};
@@ -127,22 +131,24 @@ function vizInit2(){
     // width, height, title, horizontal axis, vertical axis.  Finally
     // turn off the legend.
     var options2 = {
-        width: 700,
-        height: 400,
-	title: 'Session Hours Provided by University of Portland Librarians in 2014',
+        width: 800,
+        height: 500,
+	title: 'Confidence Level and Number of Assignments',
+	titleTextStyle: {
+		fontSize: 15,
+		bold: true
+	},
         hAxis: {
-            title: 'Month',
+            title: 'Major',
             gridlines: {count: 12}
         },
-        vAxis: {
-            title: 'People Hours'
-        },
+        
 		series: {
 		0: {color: '#551a8b'},
 		1: {color: '#999999'}
 	},
 	legend: { 
-	    position: 'none' 
+	    position: 'top' 
 	}
 	
     };
