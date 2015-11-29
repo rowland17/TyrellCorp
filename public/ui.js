@@ -7,12 +7,7 @@
 var librs = librs || {};
 librs.ui = {};
 librs.ui = function() {
-var fetch = function() {
-	var el = document.getElementById('year');
-	var elVal = el.value;
-	console.log(elVal);
-	vizController(elVal);
-};
+
 var toggle = function() {
 
     //console.log('About!');
@@ -40,7 +35,7 @@ var initialize = function() {
 
     console.log('Initialize!');
 
-    // Grab the 'About' button element, identified by the                                                                          
+    // Grab the 'graph toggle' button element, identified by the                                                                          
     // 'about-btn' id.                                                                                                             
     var button = document.getElementById('graphBut');
     //var btn = document.getElementById('submit-btn');

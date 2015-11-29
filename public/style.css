@@ -76,26 +76,36 @@ div#header p.title{
 		
 }
 div#footer{
+	margin-top: 500px;
 	border-top: 2px solid #666;
 	padding: 30px;
 	color: black;
 }
 
 div#ex0{
+	height: 0px;
+	width: 0px;
 	opacity:0;
 	transition: all 2s linear;
 }
 
 div#ex0.show {
+	height: 700 px;
+	width: 700px;
     opacity: 1;
 }
 
 
 div#ex1{
+	height: 0px;
+	width: 0px;
 	opacity:1;
 	transition: all 2s linear;
 }
 
 div#ex1.show {
+	height: 700 px;
+	width: 700px;
     opacity: 0;
 }
+
