@@ -33,7 +33,7 @@ var options = {
         height: 500,
 	title: 'Confidence and Satisfaction',
 	titleTextStyle: {
-		fontSize: 15,
+		fontSize: 25,
 		bold: true
 	},
         hAxis: {
@@ -135,7 +135,7 @@ function vizInit2(){
         height: 500,
 	title: 'Confidence Level and Number of Assignments',
 	titleTextStyle: {
-		fontSize: 15,
+		fontSize: 25,
 		bold: true
 	},
         hAxis: {
