@@ -69,7 +69,8 @@ function vizInit() {
 // to the console.                                                                
 	queryObj.setQuery(query);
 	queryObj.send(function(e) {
-
+	    console.log(e.getDataTable());
+	    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
             data = e.getDataTable();
 
             console.log(data);
@@ -102,8 +103,7 @@ function vizInit() {
 
 
 
-
-function vizInit2(){
+/*function vizInit2(){
 	data2 = new google.visualization.DataTable();
     data2.addColumn('string', 'Major');
     data2.addColumn('number', 'Average Confidence');
@@ -161,7 +161,7 @@ function vizInit2(){
     chart2.draw(data2, options2);
 
 }
-/*
+/*/
 function vizInit2() {
 
 	chart2 = new google.visualization.ColumnChart(document.getElementById('ex1'));
@@ -176,7 +176,8 @@ function vizInit2() {
 // to the console.                                                                
 	queryObj.setQuery(query);
 	queryObj.send(function(e) {
-
+	    console.log(e.getDataTable());
+	    console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
             data2 = e.getDataTable();
 
             console.log(data2);
@@ -206,7 +207,7 @@ function vizInit2() {
     
 }
 
-*/
+//*/
 
 
 function vizController() {
@@ -215,15 +216,7 @@ function vizController() {
 	console.log(views);
 	if(views == undefined)
 	{
-		views = new google.visualization.DataView(data);
-        //views.setRows(views.getFilteredRows([{column: 2}]));
-//		views.setRows(views.getFilteredRows([{column: 1}]));		
-	//	views.setRows(views.getFilteredRows([{column: 2}]));
-
-            // Get a subset of the columns.                                                                            
-           // views.setColumns([0, 2]);
-
-            // Draw the chart for the initial academic year.                                                           
+		views = new google.visualization.DataView(data);                                                          
             chart.draw(views.toDataTable(), options);
 	}
 console.log(views);
