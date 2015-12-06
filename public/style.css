@@ -76,7 +76,7 @@ div#header p.title{
 		
 }
 div#footer{
-	margin-top: 500px;
+	margin-top: -100px;
 	border-top: 2px solid #666;
 	padding: 30px;
 	color: black;
@@ -86,6 +86,7 @@ div#ex0{
 	height: 0px;
 	width: 0px;
 	opacity:0;
+    
 	transition: all 2s linear;
 }
 
@@ -97,15 +98,16 @@ div#ex0.show {
 
 
 div#ex1{
-	height: 0px;
-	width: 0px;
+	height: 700px;
+	width: 700px;
 	opacity:1;
 	transition: all 2s linear;
 }
 
 div#ex1.show {
-	height: 700 px;
-	width: 700px;
+	height: 0 px;
+	width: 0px;
+    visibility: hidden;
     opacity: 0;
 }
 
