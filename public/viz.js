@@ -34,6 +34,8 @@ var options = {
 		fontSize: 25,
 		bold: true
 	},
+	focusTarget: 'category',
+    trigger: 'both',
         hAxis: {
             title: 'Major',
             gridlines: {count: 9}
@@ -42,12 +44,14 @@ var options = {
             title: ''
         },
 	legend: { 
-	    position: 'top' 
+	    position: 'none' 
 	},
 	series: {
-		0: {color: '#551a8b'},
-		1: {color: '#999999'}
+		0: {color: '#551a8b',width:100},
+		1: { color: '#999999' },
+        2: {color: '#ffffff'}
 	},
+    bar: {groupWidth:"125%"},
 	animation: {
 		"startup" : true,
 		"duration" : 500
@@ -59,7 +63,7 @@ function vizInit() {
 
 	chart = new google.visualization.ColumnChart(document.getElementById('ex0'));
     // STEP 3: STORE THE DATA.
-	var query= "SELECT MAJOR, 'Database Research Confidence', 'Research Training Satisfaction' FROM 1n9vywcLACFd3BjZ8tqkwSPAMnxByOCpQwdCh_g0f";
+	var query= "SELECT MAJOR, 'Database Research Confidence', 'Research Training Satisfaction', 'Students Surveyed' FROM 1n9vywcLACFd3BjZ8tqkwSPAMnxByOCpQwdCh_g0f";
 	
 	
 	var opts = {sendMethod: 'auto'};
@@ -91,9 +95,19 @@ function vizInit() {
            // views.setColumns([0, 2]);
 
 			console.log(views.toDataTable());
-			
+			var view = views.toDataTable();
+			view.addColumn({ type: "number", role: "tooltip" }, "Students Surveyed");
+			view.setCell(0, 4, 6);
+			view.setCell(1, 4, 6);
+			view.setCell(2, 4, 6);
+			view.setCell(3, 4, 6);
+			view.setCell(4, 4, 6);
+			view.setCell(5, 4, 6);
+			view.setCell(6, 4, 6);
+			view.setCell(7, 4, 6);
+			view.setCell(8, 4, 6);
             // Draw the chart for the initial academic year.                                                           
-            chart.draw(views.toDataTable(), options);
+            chart.draw(view, options);
 			console.log(views);
 
 	});
@@ -166,7 +180,7 @@ function vizInit2() {
 
 	chart2 = new google.visualization.ColumnChart(document.getElementById('ex1'));
     // STEP 3: STORE THE DATA.
-	var query= "SELECT MAJOR, AVE_CONF, NUM_ASS FROM 1PR8WpkTsHQ2pzOcKn80E0ZEkhg4Pu96Nfpha_pv8";
+	var query= "SELECT MAJOR, AVE_CONF, NUM_ASS,'Students Surveyed' FROM 1PR8WpkTsHQ2pzOcKn80E0ZEkhg4Pu96Nfpha_pv8";
 	
 	
 	var opts = {sendMethod: 'auto'};
@@ -195,12 +209,24 @@ function vizInit2() {
 			
 
             // Get a subset of the columns.                                                                            
-           // views.setColumns([0, 2]);
+            //views.setColumns([0, 2]);
 
 			console.log(views2.toDataTable());
 			
+			var view2 = views2.toDataTable();
+			view2.addColumn({ type: "number", role: "tooltip" });
+			view2.setCell(0, 4, 8);
+			view2.setCell(1, 4, 6);
+			view2.setCell(2, 4, 6);
+			view2.setCell(3, 4, 6);
+			view2.setCell(4, 4, 6);
+			view2.setCell(5, 4, 6);
+			view2.setCell(6, 4, 6);
+			view2.setCell(7, 4, 6);
+			view2.setCell(8, 4, 6);
+
             // Draw the chart for the initial academic year.                                                           
-            chart2.draw(views2.toDataTable(), options);
+            chart2.draw(view2, options);
 			console.log(views2);
 
 	});
