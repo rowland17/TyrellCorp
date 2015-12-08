@@ -1,0 +1,6 @@
+{
+	"name": "Scott"
+	"description": "The Simplest Thing Possible",
+  	"repository": "https://github.com/rowland17/rowland341.git",
+  	"keywords": ["node", "express", "static"]
+}
