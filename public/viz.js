@@ -57,6 +57,38 @@ var options = {
 		"duration" : 500
 	}
     };
+	
+	var options2 = {
+        width: 800,
+        height: 500,
+	title: 'Confidence and Number of Assignments',
+	titleTextStyle: {
+		fontSize: 25,
+		bold: true
+	},
+	focusTarget: 'category',
+    trigger: 'both',
+        hAxis: {
+            title: 'Major',
+            gridlines: {count: 9}
+        },
+        vAxis: {
+            title: ''
+        },
+	legend: { 
+	    position: 'none' 
+	},
+	series: {
+		0: {color: '#551a8b',width:100},
+		1: { color: '#999999' },
+        2: {color: '#ffffff'}
+	},
+    bar: {groupWidth:"125%"},
+	animation: {
+		"startup" : true,
+		"duration" : 500
+	}
+    };
     
     
 function vizInit() {
@@ -97,15 +129,15 @@ function vizInit() {
 			console.log(views.toDataTable());
 			var view = views.toDataTable();
 			view.addColumn({ type: "number", role: "tooltip" }, "Students Surveyed");
-			view.setCell(0, 4, 6);
+			view.setCell(0, 4, 40);
 			view.setCell(1, 4, 6);
 			view.setCell(2, 4, 6);
-			view.setCell(3, 4, 6);
-			view.setCell(4, 4, 6);
-			view.setCell(5, 4, 6);
-			view.setCell(6, 4, 6);
-			view.setCell(7, 4, 6);
-			view.setCell(8, 4, 6);
+			view.setCell(3, 4, 21);
+			view.setCell(4, 4, 33);
+			view.setCell(5, 4, 55);
+			view.setCell(6, 4, 15);
+			view.setCell(7, 4, 34);
+			view.setCell(8, 4, 35);
             // Draw the chart for the initial academic year.                                                           
             chart.draw(view, options);
 			console.log(views);
@@ -215,18 +247,18 @@ function vizInit2() {
 			
 			var view2 = views2.toDataTable();
 			view2.addColumn({ type: "number", role: "tooltip" });
-			view2.setCell(0, 4, 8);
+			view2.setCell(0, 4, 40);
 			view2.setCell(1, 4, 6);
 			view2.setCell(2, 4, 6);
-			view2.setCell(3, 4, 6);
-			view2.setCell(4, 4, 6);
-			view2.setCell(5, 4, 6);
-			view2.setCell(6, 4, 6);
-			view2.setCell(7, 4, 6);
-			view2.setCell(8, 4, 6);
+			view2.setCell(3, 4, 21);
+			view2.setCell(4, 4, 33);
+			view2.setCell(5, 4, 55);
+			view2.setCell(6, 4, 15);
+			view2.setCell(7, 4, 34);
+			view2.setCell(8, 4, 35);
 
             // Draw the chart for the initial academic year.                                                           
-            chart2.draw(view2, options);
+            chart2.draw(view2, options2);
 			console.log(views2);
 
 	});
