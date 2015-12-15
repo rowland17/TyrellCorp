@@ -44,7 +44,7 @@ var options = {
             title: ''
         },
 	legend: { 
-	    position: 'none' 
+	    position: 'right' 
 	},
 	series: {
 		0: {color: '#551a8b',width:100},
@@ -76,7 +76,7 @@ var options = {
             title: ''
         },
 	legend: { 
-	    position: 'none' 
+	    position: 'right' 
 	},
 	series: {
 		0: {color: '#551a8b',width:100},
@@ -111,24 +111,20 @@ function vizInit() {
 
             console.log(data);
 
-            // Create a view for academic year 2013-2014 that                                                          
-            // is the first two columns of the data, just the                                                          
-            // rows that have 2013-2014 for the value.                                                                 
+            // Create a view for academic year 2013-2014                                                               
 
-            // First, get the textualized range of the year.                                                           
-            //var thisYear = "" + year[0] + "-" + year[1];
+      
 
-            // Next, create the object and get the rows 
-// corresponding to "thisYear".                                   
+                                               
             views = new google.visualization.DataView(data);
 			
 
-            // Get a subset of the columns.                                                                            
-           // views.setColumns([0, 2]);
+           
 
 			console.log(views.toDataTable());
 			var view = views.toDataTable();
 			view.addColumn({ type: "number", role: "tooltip" }, "Students Surveyed");
+			//add number of students surveyed as a tooltip
 			view.setCell(0, 4, 40);
 			view.setCell(1, 4, 6);
 			view.setCell(2, 4, 6);
@@ -147,72 +143,15 @@ function vizInit() {
 }
 
 
-
-
-/*function vizInit2(){
-	data2 = new google.visualization.DataTable();
-    data2.addColumn('string', 'Major');
-    data2.addColumn('number', 'Average Confidence');
-	data2.addColumn('number', 'Number of Assignments');
-	
-
-    // Add 12 rows to the DataTable, January - December of
-    // 2014.
-    data2.addRows([
-        ['Business', 2.5,3.02],
-        ['Humanities and History',2.33,5.14],
-        ['Arts', 3,3.17],
-        ['Hard Sciences', 2.90,3.54],
-        ['Engineering', 2.67,2.69],
-        ['Health Profession', 2.64,3.81],
-        ['Social and Behavioral Sciences', 3.4,4.2],
-        ['Education', 2.76,3.64],
-        ['Other', 2.77,3.47],
-      
-      ]);
-
-    // Set the options for the chart to be drawn.  This include the
-    // width, height, title, horizontal axis, vertical axis.  Finally
-    // turn off the legend.
-    var options2 = {
-        width: 800,
-        height: 500,
-	title: 'Confidence Level and Number of Assignments',
-	titleTextStyle: {
-		fontSize: 25,
-		bold: true
-	},
-        hAxis: {
-            title: 'Major',
-            gridlines: {count: 12}
-        },
-        
-		series: {
-		0: {color: '#551a8b'},
-		1: {color: '#999999'}
-	},
-	legend: { 
-	    position: 'top' 
-	}
-	
-    };
-
-    // Create a new viz object using the google API -- specifically,
-    // we are going to make a column chart inside the div called ex0
-    // in the html file.
-    var chart2 = new google.visualization.ColumnChart(document.getElementById('ex1'));
-
-    // STEP 7: SHOW THE DATA
-    // Draw the chart with the supplied options.
-    chart2.draw(data2, options2);
-
-}
-/*/
+/*
+*	Initialize the second graph
+*
+*/
 function vizInit2() {
 
 	chart2 = new google.visualization.ColumnChart(document.getElementById('ex1'));
     // STEP 3: STORE THE DATA.
-	var query= "SELECT MAJOR, AVE_CONF, NUM_ASS,'Students Surveyed' FROM 1PR8WpkTsHQ2pzOcKn80E0ZEkhg4Pu96Nfpha_pv8";
+	var query= "SELECT MAJOR, 'Database Research Confidence', 'Number of Assignments','Students Surveyed' FROM 1PR8WpkTsHQ2pzOcKn80E0ZEkhg4Pu96Nfpha_pv8";
 	
 	
 	var opts = {sendMethod: 'auto'};
@@ -228,15 +167,7 @@ function vizInit2() {
 
             console.log(data2);
 
-            // Create a view for academic year 2013-2014 that                                                          
-            // is the first two columns of the data, just the                                                          
-            // rows that have 2013-2014 for the value.                                                                 
-
-            // First, get the textualized range of the year.                                                           
-            //var thisYear = "" + year[0] + "-" + year[1];
-
-            // Next, create the object and get the rows 
-// corresponding to "thisYear".                                   
+            // Create a view for academic year 2013-2014                                  
             views2 = new google.visualization.DataView(data2);
 			
 
@@ -247,6 +178,7 @@ function vizInit2() {
 			
 			var view2 = views2.toDataTable();
 			view2.addColumn({ type: "number", role: "tooltip" });
+			//add number of students surveyed as tooltip
 			view2.setCell(0, 4, 40);
 			view2.setCell(1, 4, 6);
 			view2.setCell(2, 4, 6);
